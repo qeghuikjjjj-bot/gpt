@@ -1,131 +1,366 @@
 <!DOCTYPE html>
 <html lang="km">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ស្វាគមន៍មកកាន់ហាងយើង</title>
-  <style>
-    body {
-      font-family: "Noto Sans Khmer", Arial, sans-serif;
-      background-color: #fdf6e3;
-      color: #333;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<title>ហាងកាហ្វេអូនផ្កាឈូក</title>
+<style>
+body {
+  background:#f0f2f5;
+  font-family:Arial;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:20px;
+}
 
-    section.about-shop {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px 30px;
-      background-color: #ffffff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      border-radius: 10px;
-    }
+h1{
+  color:#d35400;
+  text-align:center;
+}
 
-    h1 {
-      color: #006241;
-      text-align: center;
-      margin-bottom: 20px;
-    }
+p{
+  text-align:center;
+  margin:5px 0;
+}
 
-    h2 {
-      color: #008f5c;
-      margin-top: 25px;
-    }
+.box{
+  width:400px;
+  max-height:500px; /* scrollable height */
+  background:white;
+  margin:20px auto;
+  padding:25px;
+  border-radius:8px;
+  box-shadow:0 0 10px rgba(0,0,0,.1);
+  overflow-y:auto;
+}
 
-    p {
-      margin-bottom: 15px;
-    }
+.box label{
+  display:block;
+  margin-top:10px;
+  font-weight:bold;
+}
 
-    ul {
-      list-style: disc inside;
-      margin-bottom: 15px;
-    }
+.box input, .box select{
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  margin-bottom:10px;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
 
-    ul li {
-      margin-bottom: 10px;
-    }
+.box button{
+  width:100%;
+  padding:10px;
+  background:#1877f2;
+  color:white;
+  border:none;
+  font-size:16px;
+  border-radius:5px;
+  cursor:pointer;
+}
 
-    strong {
-      color: #006241;
-    }
-  </style>
+.box button:hover{
+  background:#0f63d3;
+}
+
+#backBtn{
+  margin-top:15px;
+  width:150px;
+  padding:8px;
+  background:#888;
+  color:white;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+#backBtn:hover{
+  background:#555;
+}
+
+#totalPrice{
+  font-weight:bold;
+  color:#d35400;
+  text-align:center;
+  margin-top:10px;
+}
+/* ==== Background Video ==== */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* ==== Body ==== */
+body {
+  background:#f0f2f5;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* ==== Header ==== */
+h1{
+  color:#d35400;
+  text-align:center;
+  margin-top: 20px;
+}
+
+/* ==== Form Box ==== */
+.box{
+  width: 400px;
+  max-height: 450px;
+  background: white;
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,.1);
+  overflow-y: auto;
+  z-index: 1; /* above video */
+}
+
+/* ==== Labels & Inputs ==== */
+.box label{
+  display:block;
+  margin-top:10px;
+  font-weight:bold;
+}
+
+.box input, .box select{
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  margin-bottom:10px;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
+
+/* ==== Buttons ==== */
+.box button{
+  width:100%;
+  padding:10px;
+  background:#1877f2;
+  color:white;
+  border:none;
+  font-size:16px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.box button:hover{
+  background:#0f63d3;
+}
+
+#backBtn{
+  margin-top:15px;
+  width:150px;
+  padding:8px;
+  background:#888;
+  color:white;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+#backBtn:hover{
+  background:#555;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 500px){
+  .box {
+    width: 90%;
+    padding: 15px;
+  }
+  h1 { font-size: 20px; }
+}
+
+#tableNumber, #quantity {
+  font-size: 32px; /* ធំឡើងពី 14px ទៅ 18px */
+  padding: 12px;   /* កែសំរាប់ spacing ល្អ */
+}
+
+/* ឈ្មោះមុខម្ហូប (select) */
+#foodName {
+  font-size: 32px; /* ធំឡើងស្រួលមើល */
+  padding: 12px;
+}
+/* ===== ឈ្មោះអ្នកទិញ ===== */
+#customerName {
+  font-size: 32px;      /* ធំឡើងពី 14px ឬ 16px ទៅ 20px */
+  padding: 12px;        /* spacing ល្អសម្រាប់ typing */
+}
+
+/* ===== ឈ្មោះមុខម្ហូប ===== */
+#foodName {
+  font-size: 32px;      /* ធំស្រួលមើល */
+  padding: 12px;
+}
+/* Custom alert box */
+#customAlert {
+  display: none; /* ចាប់ផ្តើមលាក់ */
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff4d4d; /* ពណ៌ក្រហម ច្បាស់ */
+  color: white;
+  font-size: 32px;   /* អក្សរធំ */
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  z-index: 9999;
+  text-align: center;
+}
+/* ផ្ដល់ទំហំធំសម្រាប់ select */
+#drinkName {
+  font-size: 32px;   /* ធំស្រួលមើល */
+  padding: 12px;     /* spacing ខ្នះ */
+  height: 60px;      /* កំណត់ទំហំ select box */
+}
+
+/* option ឲ្យ font ធំ */
+#drinkName option {
+  font-size: 28px;   /* ធំស្រួលមើល */
+  padding: 10px;
+}
+
+</style>
 </head>
 <body>
-    <table width="100%" style="background-color: rgb(17, 209, 43) ;">
-        <tr>
-            <td align="center">
-                <h3>
-                   <a href="zdring.html">Dring</a>
-                </h3>
-            </td>
-            <td align="center">
-                <h3>
-                   <a href="index.html">Eating</a>
-                </h3>
-            </td>
-            <td align="center">
-                <h3>
-                   <a href="nabout.html">About</a>
-                </h3>
-            </td>
-            <td align="center">
-                <h3>
-                   <a href="photo.html">Photo</a>
-                </h3>
-            </td>
-             </td>
-            <td align="center">
-                <h3>
-                   <a href="quesion.html">Quesion</a>
-                </h3>
-            </td>
-        </tr>
-        <br>
-    </table>  
+<h1>ស្វាគមន៍មកកាន់ ហាងកាហ្វេអូនផ្កាឈូក</h1>
+<h1>តម្លៃក្នុង​១​មុខតែ​ 1$</h1>
+<div class="box">
+  <label>ឈ្មោះអ្នកទិញ</label>
+  <input type="text" id="customerName" placeholder="បញ្ចូលឈ្មោះអ្នកទិញ">
 
-  <section class="about-shop">
-    <h1>ស្វាគមន៍មកកាន់ហាងយើង</h1>
+  <label>លេខតុ</label>
+  <input type="text" id="tableNumber" placeholder="បញ្ចូលលេខតុ">
 
-    <p>នៅទីនេះ អ្នកមិនត្រឹមតែទទួលបានផលិតផលនោះទេ តែទទួលបានបទពិសោធន៍ផ្ទាល់ខ្លួនផងដែរ។ គ្រប់របស់រាល់អ្វីដែលយើងផ្តល់ ត្រូវបានរៀបចំដោយគិតពីរសជាតិ និងចំណង់ចំណូលចិត្តរបស់អ្នក។</p>
+  <label>ឈ្មោះភេសជ្ជៈ</label>
+<select id="drinkName">
+  <option value="">-- Select Drink --</option>
 
-    <p><strong>ចាប់ពីភេសជ្ជៈកាហ្វេក្រឡុក</strong> សូម្បីតែការតុបតែងកំប៉ុងខ្នាតតូច យើងសម្រួលឲ្យសមនឹងអ្នក។</p>
+<option value="Green Tea">Green Tea</option>
+<option value="Black Tea">Black Tea</option>
+<option value="Milk Tea">Milk Tea</option>
 
-    <h2>អ្នកអាចជ្រើសរើស:</h2>
-    <ul>
-      <li>កាហ្វេចំរាស់ផ្ទាល់ខ្លួន ដោយជ្រើសរើសកាហ្វេ, ទឹកដោះគោ, ទឹកស៊ុយកូឡា ឬគ្រឿងផ្សំផ្សេងៗ។</li>
-      <li>នំ និងស្នាមភេសជ្ជៈ បង្កើតឡើងដោយគិតពីរសជាតិផ្ទាល់ខ្លួន។</li>
-      <li>កញ្ចប់អំណោយសម្រាប់មិត្តភក្តិ ឬគ្រួសារ ដែលអ្នកអាចតុបតែងដោយខ្លួនឯង។</li>
-      <li>ផលិតផលស្បែក, ក្រណាត់, ឬគ្រឿងតុបតែងតូចៗ ដែលមានរចនាប័ទ្មផ្ទាល់ខ្លួន។</li>
-    </ul>
+<option value="Espresso Coffee">Espresso Coffee</option>
+<option value="Latte Coffee">Latte Coffee</option>
+<option value="Chocolate Coffee">Chocolate Coffee</option>
+<option value="Cocoa Powder Drink">Cocoa Drink</option>
 
-    <h2>សេវាកម្មដែលយើងផ្តល់:</h2>
-    <ul>
-      <li>កន្លែងអង្គុយសប្បាយសម្រាប់មិត្តភក្តិ និងគ្រួសារ។</li>
-      <li>ការបញ្ជាទិញតាមអនឡាញ និងចែកចាយដល់ផ្ទះ។</li>
-      <li>ព្រឹត្តិការណ៍ស្វាគមន៍ និងវគ្គបង្រៀនរបស់ហាងសម្រាប់អ្នកចូលចិត្តការបង្កើតថ្មីៗ។</li>
-      <li>កម្មវិធីពិសេសប្រចាំសប្តាហ៍ និងការផ្តល់ជូនដល់អតិថិជនថ្នាក់ VIP។</li>
-    </ul>
+<option value="Apple Juice">Apple Juice</option>
+<option value="Peach Juice">Peach Juice</option>
+<option value="Coconut Juice">Coconut Juice</option>
+<option value="Mango Juice">Mango Juice</option>
+<option value="Berry Juice">Berry Juice</option>
+<option value="Jackfruit Juice">Jackfruit Juice</option>
+<option value="Guava Juice">Guava Juice</option>
 
-    <h2>ហាងនេះជាកន្លែងដែលអ្នកអាច:</h2>
-    <ul>
-      <li>ស្វែងរករសជាតិដែលសមនឹងខ្លួនឯង។</li>
-      <li>បង្ហាញការច្នៃប្រឌិតផ្ទាល់ខ្លួនក្នុងការរចនាកាហ្វេ ឬភេសជ្ជៈ។</li>
-      <li>ចែករំលែកអារម្មណ៍ និងបទពិសោធន៍ជាមួយមិត្តភក្តិ។</li>
-      <li>ស្គាល់អតិថិជនផ្សេងទៀតដែលចូលចិត្តរឿងស្រដៀងៗគ្នា។</li>
-    </ul>
+<option value="Mango Drink">Mango Drink</option>
+<option value="Orange Juice">Orange Juice</option>
+<option value="Sugarcane Juice">Sugarcane Juice</option>
+<option value="Watermelon Juice">Watermelon Juice</option>
+<option value="Grape Juice">Grape Juice</option>
 
-    <h2>ហាងយើងខិតខំធានា:</h2>
-    <ul>
-      <li>ភេសជ្ជៈទាំងអស់ស្រស់ និងមានគុណភាព។</li>
-      <li>បរិយាកាសអង្គុយកក់ក្តៅ និងស្រស់ស្អាត។</li>
-      <li>សេវាកម្មរហ័ស និងអនុវត្តតាមចំណង់ចំណូលចិត្តរបស់អ្នក។</li>
-      <li>អំណោយពិសេស និងការផ្តល់ជូនដោយបែបផ្ទាល់ខ្លួន។</li>
-    </ul>
+<option value="Fresh Apple Juice">Fresh Apple Juice</option>
+<option value="Fresh Peach Juice">Fresh Peach Juice</option>
+<option value="Fresh Fruit Juice">Fresh Fruit Juice</option>
 
-    <p>មកស្វែងរកហាងយើង ហើយអ្នកនឹងដឹងថារាល់ភេសជ្ជៈ, គ្រឿងតុបតែង និងនំស្រស់ៗ ត្រូវបានរៀបចំសម្រាប់អ្នក។ អ្នកអាចសាកសមនឹងរចនាប័ទ្ម, ផលិតផល និងបទពិសោធន៍ដែលខុសពីគេ។ សេវាកម្មផ្ទាល់ខ្លួន និងការផ្តល់ជូនពិសេស គឺសម្រាប់អ្នកជាទីបំផុត។</p>
-  </section>
+<option value="Fresh Guava Juice">Fresh Guava Juice</option>
+<option value="Fresh Jackfruit Juice">Fresh Jackfruit Juice</option>
 
+<option value="Creamy Fresh Juice">Creamy Fresh Juice</option>
+<option value="Golden Berry Juice">Golden Berry Juice</option>
+
+<option value="Sweet Apple Juice">Sweet Apple Juice</option>
+<option value="Sweet Orange Juice">Sweet Orange Juice</option>
+<option value="Sweet Mango Juice">Sweet Mango Juice</option>
+<option value="Sweet Watermelon Juice">Sweet Watermelon Juice</option>
+<option value="Sweet Jackfruit Juice">Sweet Jackfruit Juice</option>
+<option value="Sweet Berry Juice">Sweet Berry Juice</option>
+<option value="Sweet Grape Juice">Sweet Grape Juice</option>
+
+<option value="Sour Fresh Juice">Sour Fresh Juice</option>
+<option value="Fresh Banana Juice">Fresh Banana Juice</option>
+<option value="Fresh Coconut Juice">Fresh Coconut Juice</option>
+
+<option value="Fresh Peach Smoothie">Fresh Peach Smoothie</option>
+<option value="Fresh Apple Smoothie">Fresh Apple Smoothie</option>
+<option value="Fresh Mango Smoothie">Fresh Mango Smoothie</option>
+<option value="Fresh Jackfruit Smoothie">Fresh Jackfruit Smoothie</option>
+<option value="Fresh Guava Smoothie">Fresh Guava Smoothie</option>
+<option value="Fresh Golden Fruit Smoothie">Fresh Golden Fruit Smoothie</option>
+<option value="Fresh Berry Smoothie">Fresh Berry Smoothie</option>
+<option value="Fresh Orange Smoothie">Fresh Orange Smoothie</option>
+<option value="Fresh Mixed Fruit Smoothie">Fresh Mixed Fruit Smoothie</option>
+<option value="Sweet Mango Smoothie">Sweet Mango Smoothie</option>
+
+</select>
+  <label>ចំនួន</label>
+  <input type="number" id="quantity" placeholder="បញ្ចូលចំនួន" oninput="updateTotal()">
+
+  <div id="totalPrice">តម្លៃសរុប: $0</div>
+
+  <button onclick="sendOrder()"> បញ្ជាទិញឥឡូវនេះ ></button>
+</div>
+
+<script>
+// ===== Telegram Bot info =====
+const BOT_TOKEN = "8345633952:AAFYVlMG4AHskRSMOITcxyJGaB-dirO7FAU";
+const CHAT_ID = "-4943788578";
+
+function updateTotal(){
+  const qty = parseInt(document.getElementById("quantity").value) || 0;
+  const total = qty * 1; // 1$ per item
+  document.getElementById("totalPrice").innerText = `តម្លៃសរុប: $${total}`;
+}
+
+function sendOrder(){
+  const customer = document.getElementById("customerName").value.trim();
+  const table = document.getElementById("tableNumber").value.trim();
+  const drink = document.getElementById("drinkName").value.trim();
+  const qty = document.getElementById("quantity").value.trim();
+
+  if(!customer || !table || !drink || !qty){
+    alert("សូមបំពេញព័ត៌មានទាំងអស់!");
+    return;
+  }
+
+  const total = parseInt(qty) * 1; // 1$ per item
+  const time = new Date().toLocaleString();
+  const message = `☕ ការបញ្ជាទិញថ្មី!\nឈ្មោះអ្នកទិញ: ${customer}\nលេខតុ: ${table}\nឈ្មោះភេសជ្ជៈ: ${drink}\nចំនួន: ${qty}\nតម្លៃសរុប: $${total}\n⏰ ${time}`;
+
+  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({
+      chat_id: CHAT_ID,
+      text: message
+    })
+  }).then(()=>{
+    alert("Message sent to Telegram!");
+    document.getElementById("customerName").value="";
+    document.getElementById("tableNumber").value="";
+    document.getElementById("drinkName").value="";
+    document.getElementById("quantity").value="";
+    updateTotal();
+  }).catch(err=>{
+    alert("Failed to send message.");
+    console.error(err);
+  });
+}
+</script>
+<button onclick="location.href='zdring.html'" id="backBtn">Back</button>
 </body>
 </html>
