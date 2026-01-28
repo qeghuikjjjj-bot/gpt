@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Handcrafted Ritual</title>
+
+  <style>
+    #bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* រូបភាពវីឌីអូគ្រប់ទំព័រ */
+  z-index: -1;        /* ដាក់នៅក្រោយ content */
+}
+    :root {
+      --green: #2f5a4c;
+      --light-bg: #fefafa;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #201818;
+      color: #1e3932;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+      color:palevioletred;
+    }
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap:20px;
+  padding:20px;
+}
+
+    
+
+    .card {
+      background: var(--light-bg);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 35%;
+      height: 155px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+      background: var(--green);
+      color: #fff;
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .card p {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+.card {
+  background: var(--light-bg);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* ⭐ ដាក់កណ្តាលផ្ដេក */
+}
+
+    .card button:hover {
+      background: #dd1313;
+    }
+
+    p{
+      color: gold;
+    }
+     #bg-video {
+    position: fixed;      /* ចាំនៅក្រោយ content */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* គ្រប់ទំព័រ ល្មម */
+    z-index: -1;          /* ដាក់ក្រោយ content */
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    background: #000;    /* ប្រសិនវីឌីអូមិនបាន load */
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    padding: 50px;
+    text-align: center;
+  }
+  .coffee-banner{
+  background:#2f4a2f;
+  padding:14px 25px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:15px;
+  border-radius:4px;
+}
+
+.coffee-banner p{
+  color:white;
+  font-size:14px;
+  margin:0;
+}
+
+.coffee-banner button{
+  background: yellow;
+  color:rgb(21, 1, 1);
+  border:1.5px solid rgb(194, 226, 11);
+  padding:6px 14px;
+  border-radius:999px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.coffee-banner button:hover{
+  background:rgb(41, 243, 38);
+  color:#7000f0;
+}
+a{
+  color: #090909;
+}
+  
+  
+  
+  </style>
+</head>
+<body>
+  <video autoplay muted loop id="bg-video">
+  <source src="LY//IMG_3975.MP4" type="video/mp4">
+</video>
+
+
+<img src="ly/ca07bfe3b1d24cce98381686c087cbc5.jpg" alt="" height="675px">
+
+<div class="coffee-banner">
+  <div class="container">
+    <table width="100%" >
+        <tr>
+            <td align="center">
+                <h3>
+                   <button><a href="zdring.html">Dring</a></button>
+                </h3>
+            </td>
+            <td align="center">
+                <h3>
+                    <button><a href="index.html">Eating</a></button>
+                </h3>
+            </td>
+            <td align="center">
+                <h3>
+                   <button> <a href="nabout.html">About</a></button>
+                </h3>
+            </td>
+            <td align="center">
+                <h3>
+                    <button><a href="photo.html">Photo</a></button>
+                </h3>
+            </td>
+        </tr>
+    </table>
+    <h1>ស្វាគមន៍មកកាន់ ហាងកាហ្វេអូនផ្កាឈូក</h1>
+    <p>សូមធ្វើការចុចកម្មង់តាមកម្មវិធី ដើម្បីទទួលបានភេសជ្ជៈដែលអ្នកចង់បាន</p>
+    <p>សូមបំពេញព័ត៌មានដូចខាងក្រោម</p>
+    <p>១ លេខតុ</p>
+    <p>២ ឈ្មោះភេសជ្ជៈ</p>
+    <p>៣ ចំនួនដែលចង់បាន</p>
+    <p class="note">
+      បញ្ជាក់៖ កម្មង់ម្តងបានត្រឹមតែម្តងទេ បើចង់កម្មង់ម្តងទៀត ត្រូវចុចម្តងទៀត
+    </p>
+
+    <button><a href="mbot1.html">Start an order</a></button>
+  </div>
+</div>
+</div>
+  <div class="grid">
+
+  <div class="card">
+    <img src="ly/146.png" alt="Caramel Protein Matcha">
+    <div class="card-content">
+      <div>
+        <h3>Coffe Cream</h3>
+        <p>
+          កាហ្វេថ្មពិល ញាំកាហ្វេថ្មពិលនៅតែជាកាហ្វេថ្មពិល
+          ញាំហើយចង់ញាំទៀត។
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOW</a></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="./ផាសិនទឹកដោះគោ.png" alt="Caramel Protein Latte">
+    <div class="card-content">
+      <div>
+        <h3>New Caramel Protein Latte</h3>
+        <p>
+          Sweet and smooth with up to 27 grams of protein per grande.
+          Signature espresso, protein-boosted milk and caramel syrup.
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOEW</a></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="./តែបៃតងក្រូចឆ្មា.png" alt="Iced Pistachio Latte">
+    <div class="card-content">
+      <div>
+        <h3>Iced Pistachio Latte</h3>
+        <p>
+          Our beloved Pistachio Latte served over ice and finished with a
+          salted brown-buttery topping.
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOW</a></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="./តែក្រហមក្រូចឆ្មា.png" alt="Caramel Protein Matcha">
+    <div class="card-content">
+      <div>
+        <h3>New Iced Caramel Protein Matcha</h3>
+        <p>
+          Smooth, balanced and packed with up to 31 grams of protein per
+          grande. Vibrant unsweetened matcha, protein-boosted milk and
+          caramel syrup.
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOW</a></button>
+    </div>
+  </div>
+   <div class="card">
+    <img src="./តែក្រហមក្រូចឆ្មា.png" alt="Caramel Protein Matcha">
+    <div class="card-content">
+      <div>
+        <h3>New Iced Caramel Protein Matcha</h3>
+        <p>
+          Smooth, balanced and packed with up to 31 grams of protein per
+          grande. Vibrant unsweetened matcha, protein-boosted milk and
+          caramel syrup.
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOW</a></button>
+    </div>
+  </div>
+
+</div>
+<div class="grid">
+
+  <div class="card">
+    <img src="ly/146.png" alt="Caramel Protein Matcha">
+    <div class="card-content">
+      <div>
+        <h3>Coffe Cream</h3>
+        <p>
+          កាហ្វេថ្មពិល ញាំកាហ្វេថ្មពិលនៅតែជាកាហ្វេថ្មពិល
+          ញាំហើយចង់ញាំទៀត។
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOW</a></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="./ផាសិនទឹកដោះគោ.png" alt="Caramel Protein Latte">
+    <div class="card-content">
+      <div>
+        <h3>New Caramel Protein Latte</h3>
+        <p>
+          Sweet and smooth with up to 27 grams of protein per grande.
+          Signature espresso, protein-boosted milk and caramel syrup.
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOEW</a></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="./តែបៃតងក្រូចឆ្មា.png" alt="Iced Pistachio Latte">
+    <div class="card-content">
+      <div>
+        <h3>Iced Pistachio Latte</h3>
+        <p>
+          Our beloved Pistachio Latte served over ice and finished with a
+          salted brown-buttery topping.
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOW</a></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="./តែក្រហមក្រូចឆ្មា.png" alt="Caramel Protein Matcha">
+    <div class="card-content">
+      <div>
+        <h3>New Iced Caramel Protein Matcha</h3>
+        <p>
+          Smooth, balanced and packed with up to 31 grams of protein per
+          grande. Vibrant unsweetened matcha, protein-boosted milk and
+          caramel syrup.
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOW</a></button>
+    </div>
+  </div>
+   <div class="card">
+    <img src="./តែក្រហមក្រូចឆ្មា.png" alt="Caramel Protein Matcha">
+    <div class="card-content">
+      <div>
+        <h3>New Iced Caramel Protein Matcha</h3>
+        <p>
+          Smooth, balanced and packed with up to 31 grams of protein per
+          grande. Vibrant unsweetened matcha, protein-boosted milk and
+          caramel syrup.
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOW</a></button>
+    </div>
+  </div>
+
+</div>
+<div class="grid">
+
+  <div class="card">
+    <img src="ly/146.png" alt="Caramel Protein Matcha">
+    <div class="card-content">
+      <div>
+        <h3>Coffe Cream</h3>
+        <p>
+          កាហ្វេថ្មពិល ញាំកាហ្វេថ្មពិលនៅតែជាកាហ្វេថ្មពិល
+          ញាំហើយចង់ញាំទៀត។
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOW</a></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="./ផាសិនទឹកដោះគោ.png" alt="Caramel Protein Latte">
+    <div class="card-content">
+      <div>
+        <h3>New Caramel Protein Latte</h3>
+        <p>
+          Sweet and smooth with up to 27 grams of protein per grande.
+          Signature espresso, protein-boosted milk and caramel syrup.
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOEW</a></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="./តែបៃតងក្រូចឆ្មា.png" alt="Iced Pistachio Latte">
+    <div class="card-content">
+      <div>
+        <h3>Iced Pistachio Latte</h3>
+        <p>
+          Our beloved Pistachio Latte served over ice and finished with a
+          salted brown-buttery topping.
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOW</a></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="./តែក្រហមក្រូចឆ្មា.png" alt="Caramel Protein Matcha">
+    <div class="card-content">
+      <div>
+        <h3>New Iced Caramel Protein Matcha</h3>
+        <p>
+          Smooth, balanced and packed with up to 31 grams of protein per
+          grande. Vibrant unsweetened matcha, protein-boosted milk and
+          caramel syrup.
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOW</a></button>
+    </div>
+  </div>
+   <div class="card">
+    <img src="./តែក្រហមក្រូចឆ្មា.png" alt="Caramel Protein Matcha">
+    <div class="card-content">
+      <div>
+        <h3>New Iced Caramel Protein Matcha</h3>
+        <p>
+          Smooth, balanced and packed with up to 31 grams of protein per
+          grande. Vibrant unsweetened matcha, protein-boosted milk and
+          caramel syrup.
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOW</a></button>
+    </div>
+  </div>
+
+</div>
+<div class="grid">
+
+  <div class="card">
+    <img src="ly/146.png" alt="Caramel Protein Matcha">
+    <div class="card-content">
+      <div>
+        <h3>Coffe Cream</h3>
+        <p>
+          កាហ្វេថ្មពិល ញាំកាហ្វេថ្មពិលនៅតែជាកាហ្វេថ្មពិល
+          ញាំហើយចង់ញាំទៀត។
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOW</a></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="./ផាសិនទឹកដោះគោ.png" alt="Caramel Protein Latte">
+    <div class="card-content">
+      <div>
+        <h3>New Caramel Protein Latte</h3>
+        <p>
+          Sweet and smooth with up to 27 grams of protein per grande.
+          Signature espresso, protein-boosted milk and caramel syrup.
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOEW</a></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="./តែបៃតងក្រូចឆ្មា.png" alt="Iced Pistachio Latte">
+    <div class="card-content">
+      <div>
+        <h3>Iced Pistachio Latte</h3>
+        <p>
+          Our beloved Pistachio Latte served over ice and finished with a
+          salted brown-buttery topping.
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOW</a></button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="./តែក្រហមក្រូចឆ្មា.png" alt="Caramel Protein Matcha">
+    <div class="card-content">
+      <div>
+        <h3>New Iced Caramel Protein Matcha</h3>
+        <p>
+          Smooth, balanced and packed with up to 31 grams of protein per
+          grande. Vibrant unsweetened matcha, protein-boosted milk and
+          caramel syrup.
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOW</a></button>
+    </div>
+  </div>
+   <div class="card">
+    <img src="./តែក្រហមក្រូចឆ្មា.png" alt="Caramel Protein Matcha">
+    <div class="card-content">
+      <div>
+        <h3>New Iced Caramel Protein Matcha</h3>
+        <p>
+          Smooth, balanced and packed with up to 31 grams of protein per
+          grande. Vibrant unsweetened matcha, protein-boosted milk and
+          caramel syrup.
+        </p>
+      </div>
+      <button><a href="./mbot1.html">BUY NOW</a></button>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+
+</body>
+</html>
+
+
+
+
