@@ -4,90 +4,22 @@
 <meta charset="UTF-8">
 <title>ហាងកាហ្វេអូនផ្កាឈូក</title>
 <style>
+/* ==== Reset & Base ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background:#f0f2f5;
   font-family: Arial, sans-serif;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  min-height: 100vh;
-  margin: 0;
-}
-
-h1{
-  color:#d35400;
-  text-align:center;
-  margin-top: 20px;
-}
-
-p{
-  text-align:center;
-  margin:5px 0;
-}
-
-.box{
-  width:400px;
-  max-height:500px;
-  background:white;
-  margin:20px auto;
-  padding:25px;
-  border-radius:8px;
-  box-shadow:0 0 10px rgba(0,0,0,.1);
-  overflow-y:auto;
-  z-index:1; /* above video */
-}
-
-.box label{
-  display:block;
-  margin-top:10px;
-  font-weight:bold;
-}
-
-.box input, .box select{
-  width:100%;
-  padding:10px;
-  margin-top:5px;
-  margin-bottom:10px;
-  border-radius:5px;
-  border:1px solid #ccc;
-}
-
-.box button{
-  width:100%;
-  padding:10px;
-  background:#1877f2;
-  color:white;
-  border:none;
-  font-size:16px;
-  border-radius:5px;
-  cursor:pointer;
-}
-
-.box button:hover{
-  background:#0f63d3;
-}
-
-#backBtn{
-  margin-top:15px;
-  width:150px;
-  padding:8px;
-  background:#888;
-  color:white;
-  border:none;
-  border-radius:5px;
-  cursor:pointer;
-}
-
-#backBtn:hover{
-  background:#555;
-}
-
-#totalPrice{
-  font-weight:bold;
-  color:#d35400;
-  text-align:center;
-  margin-top:10px;
+  justify-content: flex-start;
+  background: #f0f2f5;
+  overflow-x: hidden;
 }
 
 /* ==== Background Video ==== */
@@ -97,8 +29,87 @@ p{
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* លាយ video ដើម្បីពេញអេក្រង់ */
   z-index: -1;
+}
+
+/* ==== Headings ==== */
+h1 {
+  color: #d35400;
+  text-align: center;
+  margin: 20px 0 10px 0;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+/* ==== Box Form ==== */
+.box {
+  width: 400px;
+  max-width: 90%;
+  max-height: 80vh; /* ទំហំអាច scroll បាន */
+  background: rgba(255,255,255,0.95); /* ថ្មីៗ ស្រស់ល្អ និងមិនบดវីដេអូ */
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  overflow-y: auto;
+  z-index: 1; /* បង្ហាញលើ video */
+}
+
+/* ==== Inputs & Labels ==== */
+.box label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.box input,
+.box select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.box button {
+  width: 100%;
+  padding: 10px;
+  background: #1877f2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 32px;
+}
+
+.box button:hover {
+  background: #7ff64c;
+}
+
+/* ==== Back Button ==== */
+#backBtn {
+  margin: 15px 0;
+  width: 150px;
+  padding: 8px;
+  background: #888;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#backBtn:hover {
+  background: #555;
+}
+
+/* ==== Total Price ==== */
+#totalPrice {
+  font-weight: bold;
+  color: #d35400;
+  text-align: center;
+  margin-top: 10px;
 }
 
 /* ==== Responsive ==== */
@@ -107,13 +118,58 @@ p{
     width: 90%;
     padding: 15px;
   }
-  h1 { font-size: 20px; }
+  h1 {
+    font-size: 18px;
+  }
+  .box input, .box select, .box button {
+    font-size: 14px;
+  }
 }
+/* លេខតុ និង ចំនួន */
+#tableNumber, #quantity {
+  font-size: 32px; /* ធំឡើងពី 14px ទៅ 18px */
+  padding: 12px;   /* កែសំរាប់ spacing ល្អ */
+}
+
+/* ឈ្មោះមុខម្ហូប (select) */
+#foodName {
+  font-size: 32px; /* ធំឡើងស្រួលមើល */
+  padding: 12px;
+}
+/* ===== ឈ្មោះអ្នកទិញ ===== */
+#customerName {
+  font-size: 32px;      /* ធំឡើងពី 14px ឬ 16px ទៅ 20px */
+  padding: 12px;        /* spacing ល្អសម្រាប់ typing */
+}
+
+/* ===== ឈ្មោះមុខម្ហូប ===== */
+#foodName {
+  font-size: 32px;      /* ធំស្រួលមើល */
+  padding: 12px;
+}
+/* Custom alert box */
+#customAlert {
+  display: none; /* ចាប់ផ្តើមលាក់ */
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff4d4d; /* ពណ៌ក្រហម ច្បាស់ */
+  color: white;
+  font-size: 32px;   /* អក្សរធំ */
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  z-index: 9999;
+  text-align: center;
+}
+
 </style>
+
 </head>
 <body>
 <h1>ស្វាគមន៍មកកាន់ ហាងកាហ្វេអូនផ្កាឈូក</h1>
-
+<h1>តម្លៃក្នុង​១​មុខតែ​ 2.5$</h1>
 <div class="box">
   <label>ឈ្មោះអ្នកទិញ</label>
   <input type="text" id="customerName" placeholder="បញ្ចូលឈ្មោះអ្នកទិញ">
@@ -211,4 +267,3 @@ function sendOrder(){
 <button onclick="location.href='index.html'" id="backBtn">Back</button>
 </body>
 </html>
-
