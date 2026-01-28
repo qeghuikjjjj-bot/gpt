@@ -183,10 +183,62 @@ h1{
   }
   h1 { font-size: 20px; }
 }
+
+#tableNumber, #quantity {
+  font-size: 32px; /* ធំឡើងពី 14px ទៅ 18px */
+  padding: 12px;   /* កែសំរាប់ spacing ល្អ */
+}
+
+/* ឈ្មោះមុខម្ហូប (select) */
+#foodName {
+  font-size: 32px; /* ធំឡើងស្រួលមើល */
+  padding: 12px;
+}
+/* ===== ឈ្មោះអ្នកទិញ ===== */
+#customerName {
+  font-size: 32px;      /* ធំឡើងពី 14px ឬ 16px ទៅ 20px */
+  padding: 12px;        /* spacing ល្អសម្រាប់ typing */
+}
+
+/* ===== ឈ្មោះមុខម្ហូប ===== */
+#foodName {
+  font-size: 32px;      /* ធំស្រួលមើល */
+  padding: 12px;
+}
+/* Custom alert box */
+#customAlert {
+  display: none; /* ចាប់ផ្តើមលាក់ */
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff4d4d; /* ពណ៌ក្រហម ច្បាស់ */
+  color: white;
+  font-size: 32px;   /* អក្សរធំ */
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  z-index: 9999;
+  text-align: center;
+}
+/* ផ្ដល់ទំហំធំសម្រាប់ select */
+#drinkName {
+  font-size: 32px;   /* ធំស្រួលមើល */
+  padding: 12px;     /* spacing ខ្នះ */
+  height: 60px;      /* កំណត់ទំហំ select box */
+}
+
+/* option ឲ្យ font ធំ */
+#drinkName option {
+  font-size: 28px;   /* ធំស្រួលមើល */
+  padding: 10px;
+}
+
 </style>
 </head>
 <body>
 <h1>ស្វាគមន៍មកកាន់ ហាងកាហ្វេអូនផ្កាឈូក</h1>
+<h1>តម្លៃក្នុង​១​មុខតែ​ 1$</h1>
 <div class="box">
   <label>ឈ្មោះអ្នកទិញ</label>
   <input type="text" id="customerName" placeholder="បញ្ចូលឈ្មោះអ្នកទិញ">
@@ -301,4 +353,3 @@ function sendOrder(){
 <button onclick="location.href='zdring.html'" id="backBtn">Back</button>
 </body>
 </html>
-
