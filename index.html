@@ -1,509 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Handcrafted Ritual</title>
-
-  <style>
-    #bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* រូបភាពវីឌីអូគ្រប់ទំព័រ */
-  z-index: -1;        /* ដាក់នៅក្រោយ content */
-}
-    :root {
-      --green: #2f5a4c;
-      --light-bg: #fefafa;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #201818;
-      color: #1e3932;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 32px;
-      margin-bottom: 40px;
-      color:palevioletred;
-    }
-.grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap:20px;
-  padding:20px;
-}
-
-    
-
-    .card {
-      background: var(--light-bg);
-      border-radius: 4px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card img {
-      width: 35%;
-      height: 155px;
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 20px;
-      background: var(--green);
-      color: #fff;
-      text-align: center;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 18px;
-    }
-
-    .card p {
-      font-size: 14px;
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-.card {
-  background: var(--light-bg);
-  border-radius: 4px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;   /* ⭐ ដាក់កណ្តាលផ្ដេក */
-}
-
-    .card button:hover {
-      background: #dd1313;
-    }
-
-    p{
-      color: gold;
-    }
-     #bg-video {
-    position: fixed;      /* ចាំនៅក្រោយ content */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;    /* គ្រប់ទំព័រ ល្មម */
-    z-index: -1;          /* ដាក់ក្រោយ content */
-  }
-
-  body {
+    <style>
+    * {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #fff;
-    background: #000;    /* ប្រសិនវីឌីអូមិនបាន load */
-  }
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-  .content {
-    position: relative;
-    z-index: 1;
-    padding: 50px;
+/* HEADER */
+.top-header {
+    background: #0b7a6a;
+    color: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-header nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.top-header .btn {
+    background: #f4b400;
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: #000;
+}
+
+.btn:hover {
+    background: #00f462;
+}
+
+/* CATEGORY BANNER */
+.category-banner {
+    background: #09362e;
+    color: rgb(249, 44, 194);
+    padding: 60px 0;
+}
+
+.category-banner h1 {
     text-align: center;
-  }
-  .coffee-banner{
-  background:#2f4a2f;
-  padding:14px 25px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:15px;
-  border-radius:4px;
+    font-size: 36px;
 }
 
-.coffee-banner p{
-  color:white;
-  font-size:14px;
-  margin:0;
+.category-banner p {
+    text-align: justify;
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 1.8;
+    font-size: 14px;
 }
 
-.coffee-banner button{
-  background: yellow;
-  color:rgb(21, 1, 1);
-  border:1.5px solid rgb(194, 226, 11);
-  padding:6px 14px;
-  border-radius:999px;
-  cursor:pointer;
-  transition:.3s;
+/* PRODUCTS */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
-.coffee-banner button:hover{
-  background:rgb(41, 243, 38);
-  color:#7000f0;
+.product-card {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
 }
-a{
-  color: #090909;
+
+.product-card img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
 }
-  
-  </style>
+
+.product-card h3 {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.product-card a {
+    display: inline-block;
+    margin: 15px 0;
+    padding: 10px 20px;
+    background-color: #006241;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.product-card a:hover {
+    background-color: #004d1a;
+}
+
+/* FOOTER */
+footer {
+    background: #e39a9a;
+    color: rgb(20, 20, 20);
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+}
+
+.footer-box h4 {
+    margin-bottom: 10px;
+    color: #f40000;
+}
+
+.footer-box a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+/* COPYRIGHT */
+.copyright {
+    background: #f4b400;
+    text-align: center;
+    padding: 10px;
+    font-size: 13px;
+}
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Lykaluku Group Limited</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="coffee-banner">
-  <div class="container">
-    <table width="100%" >
-        <tr>
-            <td align="center">
-                <h3>
-                   <button><a href="zdring.html">Dring</a></button>
-                </h3>
-            </td>
-            <td align="center">
-                <h3>
-                    <button><a href="index.html">Eating</a></button>
-                </h3>
-            </td>
-            <td align="center">
-                <h3>
-                   <button> <a href="nabout.html">About</a></button>
-                </h3>
-            </td>
-            <td align="center">
-                <h3>
-                    <button><a href="photo.html">Photo</a></button>
-                </h3>
-            </td>
-        </tr>
-    </table>
+
+<!-- HEADER -->
+<header class="top-header">
+    <div class="logo">LYKALUKU GROUP LIMITED</div>
+    <nav>
+        <a href="zdring.html"class="btn">Dring</a>
+        <a href="index.html"class="btn">Eating</a>
+        <a href="nabout.html"class="btn">About</a>
+        <a href="photo.html"class="btn">Photo</a>
+        <a href="quesion.html" class="btn">Quotation</a>
+    </nav>
+</header>
+
+<!-- CATEGORY BANNER -->
+<section class="category-banner"> 
     <h1>ស្វាគមន៍មកកាន់ ហាងកាហ្វេអូនផ្កាឈូក</h1>
     <p>សូមធ្វើការចុចកម្មង់តាមកម្មវិធី ដើម្បីទទួលបានភេសជ្ជៈដែលអ្នកចង់បាន</p>
     <p>សូមបំពេញព័ត៌មានដូចខាងក្រោម</p>
-    <p>១ លេខតុ</p>
-    <p>២ ឈ្មោះភេសជ្ជៈ</p>
-    <p>៣ ចំនួនដែលចង់បាន</p>
-    <p class="note">
+    <p>១​ បញ្ចូលឈ្មោះរបស់អ្នក</p>
+    <p>២ លេខតុ</p>
+    <p>៣ ឈ្មោះភេសជ្ជៈ</p>
+    <p>៤ ចំនួនដែលចង់បាន</p>
+    <p>
       បញ្ជាក់៖ កម្មង់ម្តងបានត្រឹមតែម្តងទេ បើចង់កម្មង់ម្តងទៀត ត្រូវចុចម្តងទៀត
     </p>
-
-    <button><a href="mbot1.html">Start an order</a></button>
+</section>
+<!-- 1111 -->
+<!-- PRODUCTS -->
+<section class="products">
+ 
+  <div class="product-card">
+    <img src="foodly/photo_11_2026-01-28_10-59-51.jpg" alt="Arabica Coffee">
+    <h3>Arabica Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
   </div>
+
+  <div class="product-card">
+    <img src="foodly/photo_12_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+  <div class="product-card">
+    <img src="foodly/photo_13_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+<!-- 222 -->
+  <div class="product-card">
+    <img src="foodly/photo_9_2026-01-28_10-59-51.jpg" alt="Arabica Coffee">
+    <h3>Arabica Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+
+  <div class="product-card">
+    <img src="foodly/photo_6_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+  <div class="product-card">
+    <img src="foodly/photo_4_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+  <!-- 333 -->
+
+  <div class="product-card">
+    <img src="foodly/photo_42_2026-01-28_10-59-51.jpg" alt="Arabica Coffee">
+    <h3>Arabica Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+
+  <div class="product-card">
+    <img src="foodly/photo_3_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+  <div class="product-card">
+    <img src="foodly/photo_38_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+
+   <!--444 -->
+   <div class="product-card">
+    <img src="foodly/photo_34_2026-01-28_10-59-51.jpg" alt="Arabica Coffee">
+    <h3>Arabica Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+
+  <div class="product-card">
+    <img src="foodly/photo_38_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+  <div class="product-card">
+    <img src="foodly/photo_1_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+<!--555 -->
+
+  <div class="product-card">
+    <img src="foodly/photo_39_2026-01-28_10-59-51.jpg" alt="Arabica Coffee">
+    <h3>Arabica Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+
+  <div class="product-card">
+    <img src="foodly/photo_18_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+  <div class="product-card">
+    <img src="foodly/photo_19_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+
+  <div class="product-card">
+    <img src="foodly/photo_19_2026-01-28_10-59-51.jpg" alt="Arabica Coffee">
+    <h3>Arabica Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+
+  <div class="product-card">
+    <img src="foodly/photo_21_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+  <div class="product-card">
+    <img src="foodly/photo_18_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+
+     <div class="product-card">
+    <img src="foodly/photo_11_2026-01-28_10-59-51.jpg" alt="Arabica Coffee">
+    <h3>Arabica Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+
+  <div class="product-card">
+    <img src="foodly/photo_12_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+  <div class="product-card">
+    <img src="foodly/photo_13_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+   <div class="product-card">
+    <img src="foodly/photo_11_2026-01-28_10-59-51.jpg" alt="Arabica Coffee">
+    <h3>Arabica Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+
+  <div class="product-card">
+    <img src="foodly/photo_12_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+  <div class="product-card">
+    <img src="foodly/photo_13_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+<!-- 222 -->
+  <div class="product-card">
+    <img src="foodly/photo_9_2026-01-28_10-59-51.jpg" alt="Arabica Coffee">
+    <h3>Arabica Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+
+  <div class="product-card">
+    <img src="foodly/photo_6_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+  <div class="product-card">
+    <img src="foodly/photo_4_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+  <!-- 333 -->
+
+  <div class="product-card">
+    <img src="foodly/photo_42_2026-01-28_10-59-51.jpg" alt="Arabica Coffee">
+    <h3>Arabica Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+
+  <div class="product-card">
+    <img src="foodly/photo_3_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+  <div class="product-card">
+    <img src="foodly/photo_38_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+
+   <!--444 -->
+   <div class="product-card">
+    <img src="foodly/photo_34_2026-01-28_10-59-51.jpg" alt="Arabica Coffee">
+    <h3>Arabica Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+
+  <div class="product-card">
+    <img src="foodly/photo_38_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+  <div class="product-card">
+    <img src="foodly/photo_1_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+<!--555 -->
+
+  <div class="product-card">
+    <img src="foodly/photo_39_2026-01-28_10-59-51.jpg" alt="Arabica Coffee">
+    <h3>Arabica Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+
+  <div class="product-card">
+    <img src="foodly/photo_18_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+  <div class="product-card">
+    <img src="foodly/photo_19_2026-01-28_10-59-51.jpg" alt="Robusta Coffee">
+    <h3>Robusta Coffee</h3>
+    <a href="mbot1.html">Buy Now</a>
+  </div>
+
+</section>  
+<!-- FOOTER -->
+<footer>
+    <div class="footer-box">
+        <h4>About Me</h4>
+        <p>
+            We take pride in the quality of our agro products
+            and strive to deliver the best.
+        </p>
+    </div>
+
+    <div class="footer-box">
+        <h4>CONTACT INFORMATION</h4>
+        <p> <a href="http://www.nubb.edu.kh/">📍BATTAMBONG</a></p>
+        <p>     📞 +855 81 339 438</p>
+        <p><a href="https://qeghuikjjjj-bot.github.io/https-github.com-ly-project/">✉  Email Adress </a></p>
+    </div>
+
+    <div class="footer-box">
+        <h4>QUICK NAVIGATION</h4>
+        <a href="zdring.html">Dring</a>
+        <a href="index.html">Eating</a>
+        <a href="nabout.html">About</a>
+        <a href="photo.html">Photo</a>
+    </div>
+</footer>
+
+<div class="copyright">
+    © 2026 Lykaluku Group Limited - Coffee. 
 </div>
-</div>
-  <div class="grid">
-
-  <div class="card">
-    <img src="ly/146.png" alt="Caramel Protein Matcha">
-    <div class="card-content">
-      <div>
-        <h3>Coffe Cream</h3>
-        <p>
-          កាហ្វេថ្មពិល ញាំកាហ្វេថ្មពិលនៅតែជាកាហ្វេថ្មពិល
-          ញាំហើយចង់ញាំទៀត។
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOW</a></button>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="ផាសិនទឹកដោះគោ.png" alt="Caramel Protein Latte">
-    <div class="card-content">
-      <div>
-        <h3>New Caramel Protein Latte</h3>
-        <p>
-          Sweet and smooth with up to 27 grams of protein per grande.
-          Signature espresso, protein-boosted milk and caramel syrup.
-        </p>
-      </div>
-      <button><a href=".mbot1.html">BUY NOEW</a></button>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="តែបៃតងក្រូចឆ្មា.png" alt="Iced Pistachio Latte">
-    <div class="card-content">
-      <div>
-        <h3>Iced Pistachio Latte</h3>
-        <p>
-          Our beloved Pistachio Latte served over ice and finished with a
-          salted brown-buttery topping.
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOW</a></button>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="តែក្រហមក្រូចឆ្មា.png" alt="Caramel Protein Matcha">
-    <div class="card-content">
-      <div>
-        <h3>New Iced Caramel Protein Matcha</h3>
-        <p>
-          Smooth, balanced and packed with up to 31 grams of protein per
-          grande. Vibrant unsweetened matcha, protein-boosted milk and
-          caramel syrup.
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOW</a></button>
-    </div>
-  </div>
-   <div class="card">
-    <img src="តែក្រហមក្រូចឆ្មា.png" alt="Caramel Protein Matcha">
-    <div class="card-content">
-      <div>
-        <h3>New Iced Caramel Protein Matcha</h3>
-        <p>
-          Smooth, balanced and packed with up to 31 grams of protein per
-          grande. Vibrant unsweetened matcha, protein-boosted milk and
-          caramel syrup.
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOW</a></button>
-    </div>
-  </div>
-
-</div>
-<div class="grid">
-
-  <div class="card">
-    <img src="ly/146.png" alt="Caramel Protein Matcha">
-    <div class="card-content">
-      <div>
-        <h3>Coffe Cream</h3>
-        <p>
-          កាហ្វេថ្មពិល ញាំកាហ្វេថ្មពិលនៅតែជាកាហ្វេថ្មពិល
-          ញាំហើយចង់ញាំទៀត។
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOW</a></button>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="ផាសិនទឹកដោះគោ.png" alt="Caramel Protein Latte">
-    <div class="card-content">
-      <div>
-        <h3>New Caramel Protein Latte</h3>
-        <p>
-          Sweet and smooth with up to 27 grams of protein per grande.
-          Signature espresso, protein-boosted milk and caramel syrup.
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOEW</a></button>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="តែបៃតងក្រូចឆ្មា.png" alt="Iced Pistachio Latte">
-    <div class="card-content">
-      <div>
-        <h3>Iced Pistachio Latte</h3>
-        <p>
-          Our beloved Pistachio Latte served over ice and finished with a
-          salted brown-buttery topping.
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOW</a></button>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="តែក្រហមក្រូចឆ្មា.png" alt="Caramel Protein Matcha">
-    <div class="card-content">
-      <div>
-        <h3>New Iced Caramel Protein Matcha</h3>
-        <p>
-          Smooth, balanced and packed with up to 31 grams of protein per
-          grande. Vibrant unsweetened matcha, protein-boosted milk and
-          caramel syrup.
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOW</a></button>
-    </div>
-  </div>
-   <div class="card">
-    <img src="តែក្រហមក្រូចឆ្មា.png" alt="Caramel Protein Matcha">
-    <div class="card-content">
-      <div>
-        <h3>New Iced Caramel Protein Matcha</h3>
-        <p>
-          Smooth, balanced and packed with up to 31 grams of protein per
-          grande. Vibrant unsweetened matcha, protein-boosted milk and
-          caramel syrup.
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOW</a></button>
-    </div>
-  </div>
-
-</div>
-<div class="grid">
-
-  <div class="card">
-    <img src="ly/146.png" alt="Caramel Protein Matcha">
-    <div class="card-content">
-      <div>
-        <h3>Coffe Cream</h3>
-        <p>
-          កាហ្វេថ្មពិល ញាំកាហ្វេថ្មពិលនៅតែជាកាហ្វេថ្មពិល
-          ញាំហើយចង់ញាំទៀត។
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOW</a></button>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="ផាសិនទឹកដោះគោ.png" alt="Caramel Protein Latte">
-    <div class="card-content">
-      <div>
-        <h3>New Caramel Protein Latte</h3>
-        <p>
-          Sweet and smooth with up to 27 grams of protein per grande.
-          Signature espresso, protein-boosted milk and caramel syrup.
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOEW</a></button>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="តែបៃតងក្រូចឆ្មា.png" alt="Iced Pistachio Latte">
-    <div class="card-content">
-      <div>
-        <h3>Iced Pistachio Latte</h3>
-        <p>
-          Our beloved Pistachio Latte served over ice and finished with a
-          salted brown-buttery topping.
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOW</a></button>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="តែក្រហមក្រូចឆ្មា.png" alt="Caramel Protein Matcha">
-    <div class="card-content">
-      <div>
-        <h3>New Iced Caramel Protein Matcha</h3>
-        <p>
-          Smooth, balanced and packed with up to 31 grams of protein per
-          grande. Vibrant unsweetened matcha, protein-boosted milk and
-          caramel syrup.
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOW</a></button>
-    </div>
-  </div>
-   <div class="card">
-    <img src="តែក្រហមក្រូចឆ្មា.png" alt="Caramel Protein Matcha">
-    <div class="card-content">
-      <div>
-        <h3>New Iced Caramel Protein Matcha</h3>
-        <p>
-          Smooth, balanced and packed with up to 31 grams of protein per
-          grande. Vibrant unsweetened matcha, protein-boosted milk and
-          caramel syrup.
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOW</a></button>
-    </div>
-  </div>
-
-</div>
-<div class="grid">
-
-  <div class="card">
-    <img src="ly/146.png" alt="Caramel Protein Matcha">
-    <div class="card-content">
-      <div>
-        <h3>Coffe Cream</h3>
-        <p>
-          កាហ្វេថ្មពិល ញាំកាហ្វេថ្មពិលនៅតែជាកាហ្វេថ្មពិល
-          ញាំហើយចង់ញាំទៀត។
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOW</a></button>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="ផាសិនទឹកដោះគោ.png" alt="Caramel Protein Latte">
-    <div class="card-content">
-      <div>
-        <h3>New Caramel Protein Latte</h3>
-        <p>
-          Sweet and smooth with up to 27 grams of protein per grande.
-          Signature espresso, protein-boosted milk and caramel syrup.
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOEW</a></button>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="តែបៃតងក្រូចឆ្មា.png" alt="Iced Pistachio Latte">
-    <div class="card-content">
-      <div>
-        <h3>Iced Pistachio Latte</h3>
-        <p>
-          Our beloved Pistachio Latte served over ice and finished with a
-          salted brown-buttery topping.
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOW</a></button>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="តែក្រហមក្រូចឆ្មា.png" alt="Caramel Protein Matcha">
-    <div class="card-content">
-      <div>
-        <h3>New Iced Caramel Protein Matcha</h3>
-        <p>
-          Smooth, balanced and packed with up to 31 grams of protein per
-          grande. Vibrant unsweetened matcha, protein-boosted milk and
-          caramel syrup.
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOW</a></button>
-    </div>
-  </div>
-   <div class="card">
-    <img src="តែក្រហមក្រូចឆ្មា.png" alt="Caramel Protein Matcha">
-    <div class="card-content">
-      <div>
-        <h3>New Iced Caramel Protein Matcha</h3>
-        <p>
-          Smooth, balanced and packed with up to 31 grams of protein per
-          grande. Vibrant unsweetened matcha, protein-boosted milk and
-          caramel syrup.
-        </p>
-      </div>
-      <button><a href="mbot1.html">BUY NOW</a></button>
-    </div>
-  </div>
-
-</div>
-
-</div>
-
 
 </body>
 </html>
-
-
-
-
-
 
